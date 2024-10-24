@@ -26,15 +26,15 @@ export class AppData {
         this.data.reservas.push(reserva);
     }
 
-    obtenerUsuario(idUsuario: number | null): Usuario | Usuario[] | undefined {
+    obtenerUsuario(idUsuario?: number): Usuario | Usuario[] | undefined {
         return idUsuario ? this.data.usuarios.find(user => user.id == idUsuario) : this.data.usuarios;
     }
 
-    obtenerMesa(idMesa: number | null): Mesa | Mesa[] | undefined {
+    obtenerMesa(idMesa?: number): Mesa | Mesa[] | undefined {
         return idMesa ? this.data.mesas.find(mesa => mesa.id == idMesa) : this.data.mesas;
     }
 
-    obtenerReserva(idReserva: number | null): Reserva | Reserva[] | undefined {
+    obtenerReserva(idReserva?: number): Reserva | Reserva[] | undefined {
         return idReserva ? this.data.reservas.find(reserva => reserva.id == idReserva) : this.data.reservas;
     }
 
