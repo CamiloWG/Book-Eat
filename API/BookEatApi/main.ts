@@ -1,4 +1,4 @@
-import { Application, Router, Context } from "jsr:@oak/oak";
+import { Application, Router, Context } from "https://deno.land/x/oak@v12.1.0/mod.ts";
 import { AppData } from "./Data/AppData.ts";
 import { UsuarioController } from "./Controllers/UsuarioController.ts";
 import { ReservaController } from "./Controllers/ReservaController.ts";
@@ -30,14 +30,24 @@ router.get("/usuario/:id", (ctx: Context) => {
   ctx.response.body = UserService.ObtenerUsuario(id);
 });
 
-router.post("/usuarioCrear", async (ctx: Context) => {
-  const body =  await ctx.request.body;
-  //UserService.CrearUsuario(nombre, telefono, contraseña);
-  ctx.response.body = { message: ctx };
-});
+router.post("/usuario", async (ctx: Context) => {
+  if (!ctx.request.hasBody) {
+    ctx.response.status = 400;
+    ctx.response.body = { error: "El cuerpo de la solicitud está vacío o no se envió correctamente" };
+    return;
+  }
 
+  const body = await ctx.request.body().value;
+  const { nombre, telefono, contraseña } = body;
+  
+  UserService.CrearUsuario(nombre, telefono, contraseña);
+  ctx.response.body = { message: "Usuario creado exitosamente!" };
+});
+ 
 
 const app = new Application();
+
+ 
 app.use(router.routes());
 app.use(router.allowedMethods());
 
