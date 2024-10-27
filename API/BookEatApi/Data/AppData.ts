@@ -1,6 +1,7 @@
-import type { Mesa } from "../models/Mesa.ts";
-import type { Reserva } from "../models/Reserva.ts";
-import type { Usuario } from "../models/Usuario.ts";
+
+import type { Mesa } from "../Models/Mesa.ts";
+import type { Reserva } from "../Models/Reserva.ts";
+import type { Usuario } from "../Models/Usuario.ts";
 import type { RawData } from "./IData.ts";
 
 export class AppData {

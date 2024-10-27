@@ -2,6 +2,7 @@
   "version": "4",
   "specifiers": {
     "jsr:@oak/commons@1": "1.0.0",
+    "jsr:@oak/oak@*": "17.1.0",
     "jsr:@std/assert@1": "1.0.6",
     "jsr:@std/bytes@1": "1.0.2",
     "jsr:@std/bytes@^1.0.2": "1.0.2",
@@ -25,6 +26,20 @@
         "jsr:@std/encoding@1",
         "jsr:@std/http",
         "jsr:@std/media-types"
+      ]
+    },
+    "@oak/oak@17.1.0": {
+      "integrity": "14ffb400c3c268bdc7b3a838664fab782b4ed35bb0dfe7669013c95bb12a9503",
+      "dependencies": [
+        "jsr:@oak/commons",
+        "jsr:@std/assert",
+        "jsr:@std/bytes@1",
+        "jsr:@std/crypto",
+        "jsr:@std/http",
+        "jsr:@std/io",
+        "jsr:@std/media-types",
+        "jsr:@std/path",
+        "npm:path-to-regexp"
       ]
     },
     "@std/assert@1.0.6": {
