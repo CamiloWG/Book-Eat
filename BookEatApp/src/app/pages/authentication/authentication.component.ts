@@ -76,7 +76,7 @@ export class AuthenticationComponent {
             confirmButtonText: 'Aceptar'
           });
         } else {
-          localStorage.setItem("USER_LOGGED_NAME", respuesta.idUsuario);
+          localStorage.setItem("USER_LOGGED_ID", respuesta.idUsuario);
           this.router.navigate(['/', 'reservas']);
         }
       });

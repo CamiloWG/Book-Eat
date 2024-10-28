@@ -1,1 +1,12 @@
-<p>reservas works!</p>
+
+
+<div class="content-container">
+    <div class="header">
+        <h1>Selecciona la mesa</h1>
+    </div>
+    <div class="mesas-container">
+        @for (mesa of mesasCatalog; track mesa) {
+            <MesaObject [MesaInfo]="mesa"/>
+        }
+    </div>
+</div>

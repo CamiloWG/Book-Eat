@@ -1,0 +1,55 @@
+
+
+.mesa-container {
+    display: block;
+    align-items: center;
+    justify-items: center;
+    width: 200px;
+    height: 200px;
+}
+
+
+label {
+    font-weight: bold;
+    text-align: center;
+}
+
+.mesa-label {
+    position: absolute;
+    top: -15px;
+    left: 30px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(10px); 
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: white;
+    padding: 4px 8px;
+    border-radius: 5px;
+    pointer-events: none; 
+}
+
+.mesa-container:hover .mesa-label {
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+
+#mesa {
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+}
+
+.mesa-s {
+    background: url('../../../../../assets/img/mesa_pequeña.png') no-repeat center center;  
+}
+
+.mesa-m {
+    background: url('../../../../../assets/img/mesa_mediana.png') no-repeat center center;
+}
+
+.mesa-l {
+    background: url('../../../../../assets/img/mesa_grande.png') no-repeat center center;
+}
+

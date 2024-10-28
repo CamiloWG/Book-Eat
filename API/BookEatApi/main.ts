@@ -11,7 +11,7 @@ const UserService = new UsuarioController(data);
 const ReservaService = new ReservaController(data);
 const MesaService = new MesaController(data);
 
-initializeData(UserService);
+initializeData(UserService, MesaService);
 
 
 
@@ -71,6 +71,16 @@ router.post("/login", async (ctx: Context) => {
 
   
 });
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// SERVICIOS DE MESAS
+
+router.get("/mesas", (ctx: Context) => {
+  ctx.response.body = MesaService.ObtenerMesas();
+});
+
 
 
 const app = new Application();

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Usuario } from '../models/Usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -19,4 +20,8 @@ export class AuthenticationService {
   logearUsuario(data: any): Observable<any> {
     return this.http.post<string>(this.UrlLogearUsuario, data);
   } 
+
+  obtenerUsuario(id: string): Observable<Usuario> {
+    return this.http.get<Usuario>(this.UrlCrearUsuario+'/'+id);
+  }
 }

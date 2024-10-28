@@ -1,0 +1,10 @@
+
+
+<div class="mesa-container">
+    <label for="mesa" class="mesa-label">Mesa {{ MesaInfo().id }}</label>
+    <div id="mesa" [ngClass]="{
+        'mesa-s': MesaInfo().sillas == 2,
+        'mesa-m': MesaInfo().sillas === 4,
+        'mesa-l': MesaInfo().sillas === 6
+    }"></div>
+</div>
