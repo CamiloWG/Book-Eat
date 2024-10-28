@@ -1,4 +1,5 @@
 import { Application, Router, Context } from "https://deno.land/x/oak@v12.1.0/mod.ts";
+import { oakCors } from "https://deno.land/x/cors/mod.ts";
 import { AppData } from "./Data/AppData.ts";
 import { UsuarioController } from "./Controllers/UsuarioController.ts";
 import { ReservaController } from "./Controllers/ReservaController.ts";
@@ -47,6 +48,9 @@ router.post("/usuario", async (ctx: Context) => {
 
 const app = new Application();
 
+app.use(oakCors({
+  origin: "*" 
+}));
  
 app.use(router.routes());
 app.use(router.allowedMethods());

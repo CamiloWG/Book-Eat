@@ -43,16 +43,16 @@
           </form>
 
           <!-- REGISTRATION FORM -->
-          <form method = "POST"  class="sign-up-form"> 
+          <form class="sign-up-form" [formGroup]="registerForm()" (ngSubmit)="onRegisterSubmit()"> 
             <h2 class="title">Registro</h2>
 
             <div class="input-field">
               <i class="pi pi-user"></i> 
-              <input type="text" placeholder="Usuario" />
+              <input type="text" placeholder="Usuario" formControlName="nombre" />
             </div> 
             <div class="input-field">
               <i class="pi pi-mobile"></i> 
-              <input type="number" placeholder="Telefono" />
+              <input type="number" placeholder="Telefono" formControlName="telefono"/>
             </div>
             <div class="input-field">
               <i class="pi pi-lock"></i>
@@ -60,9 +60,9 @@
             </div>
             <div class="input-field">
               <i class="pi pi-lock"></i>
-              <input type="password" placeholder="Confirmar Contraseña" />
+              <input type="password" placeholder="Confirmar Contraseña" formControlName="contraseña"/>
             </div>
-            <input type="submit" class="btn" value="Registrarse" />
+            <input type="submit" class="btn" value="Registrarse" [disabled]="registerForm().invalid"/>
           </form>
           <!-- REGISTRATION FORM ENDS -->
         </div>
