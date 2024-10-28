@@ -42,7 +42,7 @@ router.post("/usuario", async (ctx: Context) => {
   const { nombre, telefono, contraseña } = body;
   
   UserService.CrearUsuario(nombre, telefono, contraseña);
-  ctx.response.body = { message: "Usuario creado exitosamente!" };
+  ctx.response.body = { message: "Usuario creado exitosamente!", code: 200};
 });
  
 
