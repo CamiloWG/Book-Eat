@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../core/services/authentication.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -27,13 +28,13 @@ export class AuthenticationComponent {
 
   loginForm = signal<FormGroup>(new FormGroup(
       {
-        nombre: new FormControl('', [Validators.required, Validators.minLength(5)]),
-        contraseña: new FormControl('', [Validators.required, Validators.minLength(5)])
+        nombre: new FormControl('', [Validators.required]),
+        contraseña: new FormControl('', [Validators.required])
       }
     )
   );
 
-  constructor(private authService: AuthenticationService) {}
+  constructor(private authService: AuthenticationService, private router: Router) {}
 
   goToPage(page: string) {
     this.viewLogin = page == 'login';
@@ -75,7 +76,8 @@ export class AuthenticationComponent {
             confirmButtonText: 'Aceptar'
           });
         } else {
-          //////////// IMPLEMENTAR
+          localStorage.setItem("USER_LOGGED_NAME", respuesta.idUsuario);
+          this.router.navigate(['/', 'reservas']);
         }
       });
     }

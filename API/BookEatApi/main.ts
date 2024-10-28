@@ -58,7 +58,7 @@ router.post("/login", async (ctx: Context) => {
   
   if(user) {
     if(user.contraseña == contraseña) {
-      ctx.response.body = { logeado: true, code: 200};
+      ctx.response.body = { logeado: true, code: 200, idUsuario: user.id};
       return;
     } else {
       ctx.response.status = 513;
