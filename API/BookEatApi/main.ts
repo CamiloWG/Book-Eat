@@ -83,6 +83,31 @@ router.get("/mesas", (ctx: Context) => {
 
 
 
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+// SERVICIOS DE RESERVAS
+
+router.get("/reservas", (ctx: Context) => {
+  ctx.response.body = ReservaService.ObtenerReservas();
+});
+
+router.post("/reserva", async (ctx: Context) => {
+  if (!ctx.request.hasBody) {
+    ctx.response.status = 400;
+    ctx.response.body = { error: "El cuerpo de la solicitud está vacío o no se envió correctamente" };
+    return;
+  }
+
+  const { fecha, idMesa, idUser } = await ctx.request.body().value;
+
+  
+});
+
+
+
 const app = new Application();
 
 app.use(oakCors({

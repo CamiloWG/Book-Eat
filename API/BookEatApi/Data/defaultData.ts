@@ -17,4 +17,5 @@ export function initializeData(userController: UsuarioController, mesaController
      mesaController.CrearMesa(2);
      mesaController.CrearMesa(2);
      mesaController.CrearMesa(4);
+     mesaController.CrearMesa(6);
 }

@@ -1,6 +1,4 @@
 import type { AppData } from "../Data/AppData.ts";
-import type { Mesa } from "../models/Mesa.ts";
-import type { Usuario } from "../models/Usuario.ts";
 
 
 export class ReservaController {
@@ -12,15 +10,17 @@ export class ReservaController {
     }
 
     crearReserva(fecha: Date, IdMesa: number, IdUser: number) {
-        const mesa = this.data.obtenerMesa(IdMesa);
-        const user = this.data.obtenerUsuario(IdUser);
+        const mesa = this.data.obtenerMesaPorId(IdMesa);
+        const user = this.data.obtenerUsuarioPorId(IdUser);
+
         if(mesa && user) { 
+
             const reserva = {
                 id: ++this.counter,
                 fecha: fecha,
                 hora: fecha.getHours+':'+fecha.getMinutes,
-                mesa: mesa as Mesa,
-                usuario: user as Usuario
+                mesaId: mesa.id,
+                usuarioId: user.id
             }
 
             this.data.insertarReserva(reserva);

@@ -1,6 +1,6 @@
-import type { Mesa } from "../models/Mesa.ts";
-import type { Reserva } from "../models/Reserva.ts";
-import type { Usuario } from "../models/Usuario.ts";
+import { Mesa } from "../Models/Mesa";
+import { Reserva } from "../Models/Reserva";
+import { Usuario } from "../Models/Usuario";
 
 export interface RawData {
     mesas: Mesa[],
