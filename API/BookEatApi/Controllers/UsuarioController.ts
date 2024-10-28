@@ -30,4 +30,8 @@ export class UsuarioController {
     ObtenerUsuario(IdUsuario: number) {
         return this.data.obtenerUsuario(IdUsuario);
     }
+
+    ObtenerUsuarioPorNombre(User: string) { 
+        return this.data.obtenerUsuarioPorNombre(User);
+    }
 }

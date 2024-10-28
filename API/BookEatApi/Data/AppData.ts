@@ -31,6 +31,10 @@ export class AppData {
         return idUsuario ? this.data.usuarios.find(user => user.id == idUsuario) : this.data.usuarios;
     }
 
+    obtenerUsuarioPorNombre(nombre: string): Usuario | undefined {
+        return this.data.usuarios.find(user => user.nombre == nombre);
+    }
+
     obtenerMesa(idMesa?: number): Mesa | Mesa[] | undefined {
         return idMesa ? this.data.mesas.find(mesa => mesa.id == idMesa) : this.data.mesas;
     }

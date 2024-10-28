@@ -44,7 +44,34 @@ router.post("/usuario", async (ctx: Context) => {
   UserService.CrearUsuario(nombre, telefono, contraseña);
   ctx.response.body = { message: "Usuario creado exitosamente!", code: 200};
 });
- 
+
+
+router.post("/login", async (ctx: Context) => {
+  if (!ctx.request.hasBody) {
+    ctx.response.status = 400;
+    ctx.response.body = { error: "El cuerpo de la solicitud está vacío o no se envió correctamente" };
+    return;
+  }
+
+  const { nombre, contraseña } = await ctx.request.body().value;
+  const user = UserService.ObtenerUsuarioPorNombre(nombre);
+  
+  if(user) {
+    if(user.contraseña == contraseña) {
+      ctx.response.body = { logeado: true, code: 200};
+      return;
+    } else {
+      ctx.response.status = 513;
+      ctx.response.body = { logeado: false, code: 500, message: "Contraseña incorrecta"};
+    }
+  } else {
+    ctx.response.status = 513;
+    ctx.response.body = { logeado: false, code: 500, message: "El usuario no existe"};
+  }
+
+  
+});
+
 
 const app = new Application();
 

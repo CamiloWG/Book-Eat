@@ -25,6 +25,14 @@ export class AuthenticationComponent {
     )
   );
 
+  loginForm = signal<FormGroup>(new FormGroup(
+      {
+        nombre: new FormControl('', [Validators.required, Validators.minLength(5)]),
+        contraseña: new FormControl('', [Validators.required, Validators.minLength(5)])
+      }
+    )
+  );
+
   constructor(private authService: AuthenticationService) {}
 
   goToPage(page: string) {
@@ -44,6 +52,31 @@ export class AuthenticationComponent {
               confirmButtonText: 'Aceptar'
             });
           }
+      });
+    } else {
+      Swal.fire({
+        title: 'Error',
+        text: 'Por favor válide todos los campos. (minimo 5 caracteres para cada campo)',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+    }
+  }
+
+  onLoginSubmit() {
+    if(this.loginForm().valid) {
+      this.authService.logearUsuario(this.loginForm().value).subscribe(respuesta => {
+        localStorage.setItem("USER_LOGGED", respuesta.logeado);
+        if(respuesta.code == 500) {
+          Swal.fire({
+            title: 'Error',
+            text: respuesta.mensaje,
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+          });
+        } else {
+          //////////// IMPLEMENTAR
+        }
       });
     }
   }

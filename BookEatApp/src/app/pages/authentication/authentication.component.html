@@ -5,7 +5,7 @@
         <div class="signin-signup">
 
           <!-- LOGIN FORM -->
-          <form method = "POST" class="sign-in-form"> 
+          <form class="sign-in-form" [formGroup]="loginForm()" (ngSubmit)="onLoginSubmit()"> 
             <h2 class="title">Iniciar Sesión</h2>
             <div class="input-field">
               <i class="pi pi-user"></i>
@@ -23,23 +23,7 @@
            
 
           <input type="submit" value="Entrar" class="btn solid" />
-    <!-- FORGOT PASSWORD ENDS 
-            <p class="social-text">Or Sign in with social platforms</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
-          LOGIN FORM ENDS -->
+
           </form>
 
           <!-- REGISTRATION FORM -->
