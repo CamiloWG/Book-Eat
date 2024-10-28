@@ -1,6 +1,6 @@
 
 
-<div class="mesa-container">
+<div class="mesa-container" (click)="openModal()">
     <label for="mesa" class="mesa-label">Mesa {{ MesaInfo().id }}</label>
     <div id="mesa" [ngClass]="{
         'mesa-s': MesaInfo().sillas == 2,
@@ -8,3 +8,5 @@
         'mesa-l': MesaInfo().sillas === 6
     }"></div>
 </div>
+
+

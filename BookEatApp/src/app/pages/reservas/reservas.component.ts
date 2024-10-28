@@ -6,17 +6,21 @@ import { Usuario } from '../../core/models/Usuario';
 import { AuthenticationService } from '../../core/services/authentication.service';
 import { Router } from '@angular/router';
 import { MesaComponent } from "./components/mesa/mesa.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-reservas',
   standalone: true,
-  imports: [MesaComponent],
+  imports: [MesaComponent, CommonModule],
   templateUrl: './reservas.component.html',
   styleUrl: './reservas.component.scss'
 })
 export class ReservasComponent {
   mesasCatalog: Mesa[] = [];
   reservasCatalog: Reserva[] = [];
+
+  modalOpen: boolean = false;
+  currentTable: Mesa = {} as Mesa;
 
   Usuario: Usuario = {} as Usuario;
 
@@ -36,5 +40,13 @@ export class ReservasComponent {
     }
   }
 
+  openModal(mesa: Mesa) {
+    this.currentTable = mesa;
+    this.modalOpen = true;
+  }
 
+
+  reserveTable() {
+
+  }
 }

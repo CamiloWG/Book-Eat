@@ -4,13 +4,17 @@ h1 {
     text-align: center;
     font-size: 60px;
     margin: 20px;
+    background: -webkit-linear-gradient(-45deg, #01ff9e 0%, #048654 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .mesas-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 250px));    
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));    
     gap: 20px;
     justify-content: center;
+    justify-items: center;
     align-items: center;
     border-radius: 10px;
     background-color: rgb(212, 212, 212);
@@ -51,3 +55,100 @@ h1 {
     top: -10px;
     right: 5px;
 }
+
+
+/// MODAL
+/// 
+/// 
+/// 
+
+
+// MODAL
+
+
+
+.modal-overlay {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); 
+    display: flex;
+    align-items: center;  
+    justify-content: center;  
+    z-index: 1000;  
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 350px;  
+    max-width: 90%;  
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);  
+  }
+  
+  
+  .modal-header {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .modal-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 8px;
+  }
+  
+  .modal-info {
+    flex: 1;
+  }
+  
+  .modal-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .modal-footer label {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .modal-footer input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .modal-footer button {
+    padding: 10px;
+    background-color: #fd59d4;
+    border-radius: 49px;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .modal-footer button:hover {
+    background-color: #f700ff;
+  }
+   
+
+  .mesa-s {
+    background: url('../../../assets/img/mesa_pequeña.png') no-repeat center center;  
+    background-size: contain;
+  }
+
+  .mesa-m {
+    background: url('../../../assets/img/mesa_mediana.png') no-repeat center center;
+    background-size: contain;
+  }
+
+ .mesa-l {
+    background: url('../../../assets/img/mesa_grande.png') no-repeat center center;
+    background-size: contain;
+ }
+

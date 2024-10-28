@@ -6,7 +6,42 @@
     </div>
     <div class="mesas-container">
         @for (mesa of mesasCatalog; track mesa) {
-            <MesaObject [MesaInfo]="mesa"/>
+            <MesaObject [MesaInfo]="mesa" (click)="openModal(mesa)"/>
         }
     </div>
 </div>
+
+
+@if (modalOpen) {
+    <div class="modal-overlay" (click)="modalOpen = false">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+          <!-- Contenedor principal con imagen e información -->
+          <div class="modal-header">
+            <!-- Imagen a la izquierda -->
+            <div class="modal-image" [ngClass]="{
+                'mesa-s': currentTable.sillas == 2,
+                'mesa-m': currentTable.sillas === 4,
+                'mesa-l': currentTable.sillas === 6
+            }">
+              
+            </div>
+            <!-- Información a la derecha -->
+            <div class="modal-info">
+              <h2>Mesa {{ currentTable.id }}</h2>
+              <p>Hasta para {{ currentTable.sillas }} personas</p>
+            </div>
+          </div>
+      
+          <!-- Campos de fecha y hora en la parte inferior -->
+          <div class="modal-footer">
+            <label for="date">Fecha:</label>
+            <input type="date" id="date"  />
+      
+            <label for="time">Hora:</label>
+            <input type="time" id="time"  />
+      
+            <button (click)="reserveTable()">Reservar</button>
+          </div>
+        </div>
+      </div>
+}
