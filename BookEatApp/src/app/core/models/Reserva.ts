@@ -6,6 +6,6 @@ export interface Reserva {
     id: number,
     fecha: Date,
     hora: string,
-    mesa: Mesa,
-    usuario: Usuario
+    mesaId: number,
+    usuarioId: number
 }

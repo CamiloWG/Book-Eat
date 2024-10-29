@@ -9,5 +9,5 @@ export interface Usuario {
     telefono: string,
     contraseña: string,
     rol: Rol,
-    reservas: Reserva[]
+    reservas: number[]
 }

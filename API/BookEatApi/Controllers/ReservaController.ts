@@ -35,4 +35,8 @@ export class ReservaController {
     ObtenerReserva(idReserva: number) {
         return this.data.obtenerReservaPorId(idReserva);
     }
+    
+    eliminarReserva(IdReserva: number) {
+        return this.data.eliminarReserva(IdReserva);
+    }
 }

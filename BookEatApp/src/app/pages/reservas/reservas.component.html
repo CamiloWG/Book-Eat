@@ -3,6 +3,7 @@
 <div class="content-container">
     <div class="header">
         <h1>Selecciona la mesa</h1>
+        <button (click)="toggleSidebar()" class="open-btn">Ver reservas</button>
     </div>
     <div class="mesas-container">
         @for (mesa of mesasCatalog; track mesa) {
@@ -44,3 +45,28 @@
       </div>
 }
 
+<div class="sidebar" [ngClass]="{ 'open': isSidebarOpen }">
+    <button (click)="toggleSidebar()" class="close-btn"><i class="pi pi-times"></i></button>
+    <h3>Mis reservas</h3>
+    <div class="reservas-list">
+        @for(reserva of reservasCatalog; track reservasCatalog) {
+            <div class="reserva-item">
+                <div class="reserva-img" [ngClass]="{
+                    'mesa-s': findMesa(reserva.mesaId).sillas === 2,
+                    'mesa-m': findMesa(reserva.mesaId).sillas === 4,
+                    'mesa-l': findMesa(reserva.mesaId).sillas === 6
+                }"></div> 
+                <div class="reserva-info">
+                    <p class="texto-info">Mesa #{{ reserva.mesaId }}</p>
+                    <p class="texto-info">Fecha: {{ reserva.fecha }}</p>
+                    <div class="btn-delete-container">
+                        <p>Hora: {{ reserva.hora }}</p>
+                        <button (click)="deleteReserve(reserva.id)" class="delete-btn"><i class="pi pi-trash"></i></button>
+                        <button class="edit-btn"><i class="pi pi-pencil"></i></button>
+                    </div>
+                </div>
+                
+            </div>
+        } 
+    </div>
+</div>

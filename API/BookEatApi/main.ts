@@ -111,6 +111,23 @@ router.post("/reserva", async (ctx: Context) => {
   }
 });
 
+router.post("/reservaEliminar", async (ctx: Context) => {
+  if (!ctx.request.hasBody) {
+    ctx.response.status = 400;
+    ctx.response.body = { error: "El cuerpo de la solicitud está vacío o no se envió correctamente" };
+    return;
+  }
+
+  const idReserva = await ctx.request.body().value;
+
+  if(ReservaService.ObtenerReservas().find(reserva => reserva.id == idReserva)) {
+    ReservaService.eliminarReserva(idReserva); 
+    ctx.response.body = { message: "Reservación eliminada exitosamente", code: 200};
+  } else {
+    ctx.response.body = { message: "No se encontró una reservación con la ID: "+ idReserva, code: 500};
+  }
+});
+
 
 
 const app = new Application();
