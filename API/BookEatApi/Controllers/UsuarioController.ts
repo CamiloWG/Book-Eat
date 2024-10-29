@@ -17,7 +17,7 @@ export class UsuarioController {
             telefono: telefono,
             contraseña: contraseña,
             rol: rol,
-            reservas: []
+            reservasIds: []
         }
 
         this.data.insertarUsuario(user);

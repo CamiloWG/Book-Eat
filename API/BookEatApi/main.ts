@@ -101,9 +101,14 @@ router.post("/reserva", async (ctx: Context) => {
     return;
   }
 
-  const { fecha, idMesa, idUser } = await ctx.request.body().value;
+  const { fecha, hora, idMesa, idUser } = await ctx.request.body().value;
 
-  
+  if(ReservaService.ObtenerReservas().find(reserva => reserva.fecha == fecha && reserva.hora == hora && reserva.mesaId == idMesa) == undefined) {
+    ReservaService.crearReserva(fecha, hora, idMesa, idUser);
+    ctx.response.body = { message: "Reservación creada exitosamente", code: 200};
+  } else {
+    ctx.response.body = { message: "Ya hay una reserva creada en esta fecha para esta mesa!", code: 500};
+  }
 });
 
 

@@ -13,7 +13,7 @@ export class MesaController {
         const mesa = {
             id: ++this.counter,
             sillas: sillas,
-            reservas: []
+            reservasIds: []
         };
 
         this.data.insertarMesa(mesa);
@@ -24,6 +24,6 @@ export class MesaController {
     }
 
     ObtenerMesa(idMesa: number) {
-        return this.data.obtenerMesa(idMesa);
+        return this.data.obtenerMesaPorId(idMesa);
     }
 }

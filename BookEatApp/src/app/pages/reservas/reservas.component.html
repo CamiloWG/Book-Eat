@@ -15,9 +15,8 @@
 @if (modalOpen) {
     <div class="modal-overlay" (click)="modalOpen = false">
         <div class="modal-content" (click)="$event.stopPropagation()">
-          <!-- Contenedor principal con imagen e información -->
+
           <div class="modal-header">
-            <!-- Imagen a la izquierda -->
             <div class="modal-image" [ngClass]="{
                 'mesa-s': currentTable.sillas == 2,
                 'mesa-m': currentTable.sillas === 4,
@@ -25,23 +24,23 @@
             }">
               
             </div>
-            <!-- Información a la derecha -->
+            
             <div class="modal-info">
               <h2>Mesa {{ currentTable.id }}</h2>
               <p>Hasta para {{ currentTable.sillas }} personas</p>
             </div>
           </div>
       
-          <!-- Campos de fecha y hora en la parte inferior -->
           <div class="modal-footer">
             <label for="date">Fecha:</label>
-            <input type="date" id="date"  />
-      
+            <input type="date" id="date" [min]="currentTime" [(ngModel)]="reservationDate" />
+    
             <label for="time">Hora:</label>
-            <input type="time" id="time"  step="3600" min="12:00" max="20:00" />
-      
+            <input type="time" id="time"  step="3600" min="12:00" max="20:00" [(ngModel)]="reservationTime"/>
+    
             <button (click)="reserveTable()">Reservar</button>
           </div>
         </div>
       </div>
 }
+

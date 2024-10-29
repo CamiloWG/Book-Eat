@@ -12,20 +12,5 @@ import { CommonModule } from '@angular/common';
 export class MesaComponent {
   
   public MesaInfo = input.required<Mesa>();
-  modalOpen: boolean = false;
-
-
-  openModal() {
-    this.modalOpen = true;
-  }
-
-  closeModal() {
-    this.modalOpen = false;
-  }
-
-
-  reserveTable() {
-    
-  }
-
+  
 }

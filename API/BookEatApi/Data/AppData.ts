@@ -39,16 +39,20 @@ export class AppData {
         return this.data.usuarios.find(user => user.nombre == nombre);
     }
 
-    obtenerMesa(idMesa?: number): Mesa | Mesa[] | undefined {
-        return idMesa ? this.data.mesas.find(mesa => mesa.id == idMesa) : this.data.mesas;
+    obtenerMesa(): Mesa[]  {
+        return this.data.mesas;
     }
 
     obtenerMesaPorId(idMesa: number): Mesa | undefined {
         return this.data.mesas.find(mesa => mesa.id == idMesa);
     }
 
-    obtenerReserva(idReserva?: number): Reserva | Reserva[] | undefined {
-        return idReserva ? this.data.reservas.find(reserva => reserva.id == idReserva) : this.data.reservas;
+    obtenerReservas(): Reserva[] {
+        return this.data.reservas;
+    }
+
+    obtenerReservaPorId(idReserva: number): Reserva | undefined {
+        return this.data.reservas.find(reserva => reserva.id == idReserva);
     }
 
     eliminarReserva(idReserva: number): void {
